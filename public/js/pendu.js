@@ -30,8 +30,9 @@
     
     var reset = document.createElement("button");
     reset.innerHTML = "relancer";
-    reset.setAttribute('onClick',"window.location.reload();")
-    
+    // reset.setAttribute('onClick',"window.location.reload();");
+    reset.onclick = function(){window.location.reload();};
+
     var centre = document.getElementById("centre");
     
     centre.appendChild(under);
@@ -43,7 +44,8 @@
 
     document.body.appendChild(centre);
 
-    confirmB.setAttribute("onclick", "checkWord()");
+    // confirmB.setAttribute("onclick", "checkWord()");
+    confirmB.onclick = function(){checkWord();};
 
     function checkWord() {
         if(remainingTries==0){

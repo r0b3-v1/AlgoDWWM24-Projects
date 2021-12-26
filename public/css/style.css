@@ -65,3 +65,14 @@ input{
 input:focus{
     outline: none;
 }
+
+select{
+    background-color: black;
+color: #3b8e2f;
+border-width: 1px;
+border-color: #3b8e2f;
+}
+
+.red-glow{
+    text-shadow: 0 0 5px red;
+}
