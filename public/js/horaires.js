@@ -65,5 +65,5 @@
           var date2 = new Date();
           var offset = date.getTimezoneOffset();
 
-          console.log((countrySelected - offset) / 60);
+          console.log('difference d\'heure entre votre pays et celui sélectionné : ' +(countrySelected - offset) / 60+'h');
         }
