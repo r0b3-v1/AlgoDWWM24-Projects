@@ -5,9 +5,7 @@
         var pTimeZone = document.createElement("P");
         pTimeZone.innerHTML = 'your timezone is : ' + Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        document.body.appendChild(pTimeZone);
         var select = document.createElement("SELECT");
-        document.body.appendChild(select);
         var fuseau1 = document.createElement("OPTION");
         var fuseau2 = document.createElement("OPTION");
         var fuseau3 = document.createElement("OPTION");
@@ -26,17 +24,16 @@
         fuseau5.innerHTML = "Chine(Shanghai)";
         fuseau6.setAttribute("option","Asia/Tokyo");
         fuseau6.innerHTML = "Japon";
-
+        
         select.appendChild(fuseau1);
         select.appendChild(fuseau2);
         select.appendChild(fuseau3);
         select.appendChild(fuseau4);
         select.appendChild(fuseau5);
         select.appendChild(fuseau6);
-
-
+        
         // select.appendChild(optionPlus);
-  
+        
         
         var button = document.createElement("BUTTON");
         button.setAttribute("type","button");
@@ -44,7 +41,15 @@
         button.innerHTML="Result";
         button.onclick = function(e){getCountries();};
         
-        document.body.appendChild(button);
+        var bToAppend = document.getElementById("corps");
+
+        var textResult = document.createElement("P");
+        
+        bToAppend.appendChild(pTimeZone);
+        bToAppend.appendChild(select);
+        bToAppend.appendChild(button);
+        bToAppend.appendChild(document.createElement("br"));
+        bToAppend.appendChild(textResult);
 
         console.log("test ...")
         let d = new Date()
@@ -64,6 +69,7 @@
           
           var date2 = new Date();
           var offset = date.getTimezoneOffset();
+          textResult.innerHTML = 'La différence d\'heure entre votre pays et celui sélectionné est de ' +(countrySelected - offset) / 60+'h';
 
           console.log('difference d\'heure entre votre pays et celui sélectionné : ' +(countrySelected - offset) / 60+'h');
         }

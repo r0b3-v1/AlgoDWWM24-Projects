@@ -35,12 +35,14 @@ button.onclick = function(e){calculate(getInputValue());};
 var pResult = document.createElement("P");
 pResult.setAttribute("id","result");
 
-document.getElementById('corps').appendChild(inputedA);
-document.getElementById('corps').appendChild(select);
-document.getElementById('corps').appendChild(inputedB);
-document.getElementById('corps').appendChild(button);
-document.getElementById('corps').appendChild(document.createElement("br"));
-document.getElementById('corps').appendChild(pResult);
+var bToAppend = document.getElementById('corps');
+
+bToAppend.appendChild(inputedA);
+bToAppend.appendChild(select);
+bToAppend.appendChild(inputedB);
+bToAppend.appendChild(button);
+bToAppend.appendChild(document.createElement("br"));
+bToAppend.appendChild(pResult);
 
 function getInputValue(){
   var inputValA = inputedA.value;
