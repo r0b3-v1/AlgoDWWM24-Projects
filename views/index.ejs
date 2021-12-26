@@ -10,12 +10,14 @@
 <body>
     <h1>Les projets de la team DWWM24 Algo js</h1>
     <p>Bienvenue sur la liste des projets de la team DWWM24, ci-dessous la liste des pages accessibles à ce jour :</p>
-    <ul>
-        <% if (pageList) { %>
-            <%  Object.keys(pageList).forEach(function (key) { %>
-                <li><a href="<%= key %>"><%= pageList[key] %></a></li>
-            <% }) %>
-        <% } %>
-    </ul>
+    <div id="liste">
+        <ul>
+            <% if (pageList) { %>
+                <%  Object.keys(pageList).forEach(function (key) { %>
+                    <a href="<%= key %>"><li>► <%= pageList[key] %></li></a>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
 </body>
 </html>

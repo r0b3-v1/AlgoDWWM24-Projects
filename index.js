@@ -16,7 +16,7 @@ app.set('views','./views');
 
 app.listen(3000);
 
-var pageList={'/pendu':'Jeu du pendu', '/calculatrice':'Calculatrice', '/fuseaux':'fuseaux horaires'};
+var pageList={'/pendu':'Jeu du pendu', '/calculatrice':'Calculatrice', '/fuseaux':'Fuseaux horaires'};
 app.get('/', function(req,res){
 
     res.render('index.ejs',{'pageList':pageList});

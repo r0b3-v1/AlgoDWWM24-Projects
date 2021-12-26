@@ -1,4 +1,67 @@
 body{
-    background-color: bisque;
+    background-color: rgb(37, 37, 37);
     font-family: cursive;
+    color: #90ce53;
+}
+ul{
+    padding: 0;
+    list-style: none;
+}
+
+#liste, #centre, h1{
+    background-color:rgba(0, 0, 0, 0.5);
+    transition: all 0.3s linear;
+}
+
+#liste:hover{
+    box-shadow: 0 0 5px #90ce53 inset;
+}
+
+li{
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 10px 0px 100px -100px black inset;
+    position: relative;
+}
+
+
+
+li:hover{
+    background: linear-gradient(90deg, rgba(255,0,0,0.4) 0%, rgba(0,212,255,0) 100%);     cursor: pointer;
+    
+    transition: all 0.2s linear;
+}
+
+a{
+    text-decoration: none;
+    color: #90ce53;
+}
+
+a:hover, button:hover{
+    text-shadow: 0 0 5px red;
+}
+
+button{
+    width: 5%;
+    background: black;
+    color: #90ce53;
+    border-color: #90ce53;
+    border-radius: 5px;
+    font-family: cursive;
+    border-width: 1px;
+}
+
+button:hover{
+    box-shadow: 0 0 5px #90ce53 inset;
+}
+
+input{
+    background-color: #121212;
+    border: 1px solid #90ce53;
+    color: #90ce53;
+
+}
+
+input:focus{
+    outline: none;
 }
