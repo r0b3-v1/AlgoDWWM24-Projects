@@ -16,7 +16,7 @@ app.set('views','./views');
 
 app.listen(3000);
 
-var pageList={'/pendu':'Jeu du pendu', '/calculatrice':'Calculatrice'};
+var pageList={'/pendu':'Jeu du pendu', '/calculatrice':'Calculatrice', '/fuseaux':'fuseaux horaires'};
 app.get('/', function(req,res){
 
     res.render('index.ejs',{'pageList':pageList});
@@ -28,9 +28,12 @@ app.get('/pendu', function(req, res){
 });
 
 app.get('/calculatrice', function(req, res){
-    var q = url.parse(req.url, true).query;
-    console.log(q);
+    // var q = url.parse(req.url, true).query;
+    // console.log(q);
     res.render('calculatrice.ejs');
 });
 
+app.get('/fuseaux', function(req, res){
+    res.render('fuseaux.ejs');
+});
 
