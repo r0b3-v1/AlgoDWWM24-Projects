@@ -51,3 +51,39 @@ console.log('calcul de 4 + 3 = ' + calculatrice(4, 3, "+"));
     }
     console.log('Remove de /tache1 = ' + removeFirstCharacter());
     
+//Vladimir
+const numberOfSeats = 1850;
+let numberOfGuests = 1850;
+
+if(numberOfGuests<numberOfSeats){
+    console.log("Autoriser plus de reservations");
+}
+else if ( numberOfGuests==numberOfSeats) {
+    console.log("La salle est pleine !");
+}
+
+     else {
+    console.log("La salle est pleine, plus de reservations possible !");
+} ;
+
+
+let numberOfFreeSeats = numberOfSeats-numberOfGuests;
+console.log("Nombre de places restantes " + numberOfFreeSeats);
+
+
+const userName = "vlado9375";
+const password = 123456789;
+const minimumAge = 18;
+const welcomeMessage = "Bienvenue :-)";
+
+let clientAge = 19;
+let clientUsersnameWrote = "vlado9375";
+let clientPasswordWrote = 123456789;
+
+if (userName==clientUsersnameWrote && password==clientPasswordWrote && minimumAge<=clientAge ){
+    console.log(welcomeMessage)
+} else {
+    console.log("Go out !!!!")
+};
+
+
