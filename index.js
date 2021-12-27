@@ -21,7 +21,8 @@ var pageList={'/pendu':'Jeu du pendu',
 '/calculatrice':'Calculatrice', 
 '/fuseaux':'Fuseaux horaires',
 '/todo':'Todo list',
-'/changeColor':'change Color'
+'/changeColor':'change Color',
+'/bounce' : 'bouncing balls'
 };
 
 app.get('/', function(req,res){
@@ -52,3 +53,6 @@ app.get('/changeColor', function(req,res){
     res.render('changeColor.ejs');
 });
 
+app.get('/bounce', function(req,res){
+    res.render('bounce.ejs');
+});
