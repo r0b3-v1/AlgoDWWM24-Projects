@@ -1,4 +1,4 @@
-    
+    // Rémy & Charles
     var usedWords = new Array();
     var remainingTries = 9;
     var word = document.currentScript.getAttribute('one');

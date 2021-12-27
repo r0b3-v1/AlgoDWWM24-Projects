@@ -1,3 +1,4 @@
+//Rémy 
 var inputedA = document.createElement("INPUT");
 inputedA.setAttribute("type","text");
 inputedA.setAttribute("placeholder","Rentrer un chiffre");
