@@ -1,3 +1,4 @@
+// Rémy, server utilisant le framework express pour faciliter le routing et le chargement des vues
 const { response } = require('express');
 var express = require('express');
 const reader = require('./read.js');
@@ -16,7 +17,13 @@ app.set('views','./views');
 
 app.listen(3000);
 
-var pageList={'/pendu':'Jeu du pendu', '/calculatrice':'Calculatrice', '/fuseaux':'Fuseaux horaires'};
+var pageList={'/pendu':'Jeu du pendu', 
+'/calculatrice':'Calculatrice', 
+'/fuseaux':'Fuseaux horaires',
+'/todo':'Todo list',
+'/changeColor':'change Color'
+};
+
 app.get('/', function(req,res){
 
     res.render('index.ejs',{'pageList':pageList});
@@ -35,5 +42,13 @@ app.get('/calculatrice', function(req, res){
 
 app.get('/fuseaux', function(req, res){
     res.render('fuseaux.ejs');
+});
+
+app.get('/todo', function(req,res){
+    res.render('todo.ejs');
+});
+
+app.get('/changeColor', function(req,res){
+    res.render('changeColor.ejs');
 });
 

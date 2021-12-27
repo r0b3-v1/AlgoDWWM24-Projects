@@ -17,13 +17,16 @@ ul{
     box-shadow: 0 0 5px #90ce53 inset;
 }
 
-li{
+.li-index{
     height: 60px;
     line-height: 60px;
     box-shadow: 10px 0px 100px -100px black inset;
     position: relative;
 }
 
+.li-todo{
+    padding: 20px 0 20px 0;
+}
 
 
 li:hover{

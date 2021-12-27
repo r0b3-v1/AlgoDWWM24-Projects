@@ -14,7 +14,7 @@
         <ul>
             <% if (pageList) { %>
                 <%  Object.keys(pageList).forEach(function (key) { %>
-                    <a href="<%= key %>"><li>► <%= pageList[key] %></li></a>
+                    <a href="<%= key %>"><li class="li-index">► <%= pageList[key] %></li></a>
                 <% }) %>
             <% } %>
         </ul>
