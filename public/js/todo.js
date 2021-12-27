@@ -70,6 +70,7 @@ const createTodoElement = (todo, index) => {
 
 const createTodoEditElement = (todo, index, isNew=false) => {
   const li = document.createElement("li");
+  li.className = "li-todo-edit";
   const input = document.createElement("input");
   input.type = "text";
   input.value = todo.text;
@@ -84,7 +85,7 @@ const createTodoEditElement = (todo, index, isNew=false) => {
   buttonSave.addEventListener("click", event => {
     editTodo(index, input, isNew);
   });
-  li.append(input, buttonCancel, buttonSave);
+  li.append(input,document.createElement("br"),document.createElement("br"), buttonCancel, buttonSave);
   return li;
 };
 

@@ -24,10 +24,14 @@ ul{
     position: relative;
 }
 
-.li-todo{
+.li-todo, .li-todo-edit{
     padding: 20px 0 20px 0;
 }
 
+.li-todo-edit input{
+    color: orange;
+    border-color: orange;
+}
 
 li:hover{
     background: linear-gradient(90deg, rgba(255,0,0,0.4) 0%, rgba(0,212,255,0) 100%);     cursor: pointer;
@@ -78,4 +82,25 @@ border-color: #3b8e2f;
 
 .red-glow{
     text-shadow: 0 0 5px red;
+}
+
+#submit-todo{
+    color: red;
+    font-family: cursive;
+    border-color: red;
+}
+
+#submit-todo:hover{
+    text-shadow: 0 0 5px red;
+    box-shadow: 0 0 5px red inset;
+}
+
+#ul-todo{
+    border: 3px rgba(255, 255,255, 0.4) dashed;
+    background-color: black;
+    border-radius: 15px;
+}
+
+#ul-todo li:nth-child(2n){
+    background-color: rgba(255, 255,255, 0.1);
 }
