@@ -1,0 +1,23 @@
+
+[
+    {
+        "text": "je suis une todo",
+        "done": false,
+        "editMode": true
+    },
+    {
+        "text": "faire du JavaScript",
+        "done": true,
+        "editMode": false
+    },
+    {
+        "text": "autre tache",
+        "done": false,
+        "editMode": true
+    },
+    {
+        "text":"tache JSON",
+        "done":true,
+        "editMode":false
+    }
+]

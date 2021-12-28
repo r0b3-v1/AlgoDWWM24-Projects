@@ -1,5 +1,5 @@
 let fs = require('fs');
-
+const todoPath = './todo.json';
 
 exports.randomWord = function(){
     //on lit le fichier texte et on récupère le contenu
@@ -15,3 +15,10 @@ exports.randomWord = function(){
     let motAleatoire = listeMots[nombreAleatoire];
     return motAleatoire;
 }
+
+exports.getTodoJSON = function(){
+    if(!fs.existsSync(todoPath) || fs.readFileSync(todoPath)=='')
+    fs.appendFileSync(todoPath,'{}');
+
+    return fs.readFileSync(todoPath);
+};

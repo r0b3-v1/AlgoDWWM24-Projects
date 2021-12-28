@@ -25,6 +25,13 @@ var pageList={'/pendu':'Jeu du pendu',
 '/bounce' : 'bouncing balls'
 };
 
+var todoListJSON = reader.getTodoJSON();
+
+
+app.use(express.urlencoded({
+    extended: true
+  }))
+
 app.get('/', function(req,res){
 
     res.render('index.ejs',{'pageList':pageList});
@@ -46,7 +53,7 @@ app.get('/fuseaux', function(req, res){
 });
 
 app.get('/todo', function(req,res){
-    res.render('todo.ejs');
+    res.render('todo.ejs', {"todoJSON" : todoListJSON});
 });
 
 app.get('/changeColor', function(req,res){
@@ -56,3 +63,8 @@ app.get('/changeColor', function(req,res){
 app.get('/bounce', function(req,res){
     res.render('bounce.ejs');
 });
+
+app.post('/save', function(request, response){
+    console.log('result : ' + request);
+});
+

@@ -3,33 +3,19 @@ const ul = document.querySelector("ul");
 const form = document.querySelector("form");
 const input = document.querySelector("form > input");
 const taskButton = document.getElementById("newTask");
+const inputTodos = document.getElementById("todos");
 
 form.addEventListener("submit", event => {
   event.preventDefault();
   const value = input.value;
   // input.value = "";
   addTodo(value);
+  inputTodos.value = "JSON.stringify(todos,null,2)";
+  callFetch();
+  console.log(todos);
 });
-
-
-const todos = [
-  {
-    text: "je suis une todo",
-    done: false,
-    editMode: true
-  },
-  {
-    text: "faire du JavaScript",
-    done: true,
-    editMode: false
-  },
-  {
-    text: "autre tache",
-    done: false,
-    editMode: true
-  }
-];
-
+var todoJSON = document.currentScript.getAttribute('one');
+const todos = JSON.parse(todoJSON);
 const displayTodo = () => {
   const todosNode = todos.map((todo, index) => {
     if (todo.editMode) {
@@ -68,7 +54,7 @@ const createTodoElement = (todo, index) => {
   return li;
 };
 
-const createTodoEditElement = (todo, index, isNew=false) => {
+const createTodoEditElement = (todo, index) => {
   const li = document.createElement("li");
   li.className = "li-todo-edit";
   const input = document.createElement("input");
@@ -83,7 +69,7 @@ const createTodoEditElement = (todo, index, isNew=false) => {
     toggleEditMode(index);
   });
   buttonSave.addEventListener("click", event => {
-    editTodo(index, input, isNew);
+    editTodo(index, input);
   });
   li.append(input,document.createElement("br"),document.createElement("br"), buttonCancel, buttonSave);
   return li;
@@ -112,15 +98,21 @@ const toggleEditMode = index => {
   displayTodo();
 };
 
-const editTodo = (index, input, save=true) => {
+const editTodo = (index, input) => {
   const value = input.value;
-  if (save)
-  todos.push({'text' : input.value, 'done' : false, 'editMode' : false});
-  else{    
     todos[index].text = value;
     todos[index].editMode = false;
-  }
   displayTodo();
 };
 
 displayTodo();
+
+function callFetch(){
+  fetch('/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: todos
+  });
+}
