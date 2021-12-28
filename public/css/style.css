@@ -58,7 +58,7 @@ button{
     border-width: 1px;
 }
 
-button:hover{
+button:hover, #taskNew:hover{
     box-shadow: 0 0 5px #90ce53 inset;
 }
 

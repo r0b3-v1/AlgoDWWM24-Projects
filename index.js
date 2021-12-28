@@ -53,13 +53,13 @@ app.get('/fuseaux', function(req, res){
 });
 
 app.post('/save', function(req, res){
-    var jsonResult =  req.body.todos;
+    var jsonResult =  req.body.todos; //on récupère la valeur de l'input qui contient le json
     reader.writeTodoJSON(jsonResult);
-    todoListJSON = reader.getTodoJSON();
-    res.render('todo.ejs', {"todoJSON" : todoListJSON});
+    res.redirect('/todo'); // on revient sur la liste 
 });
 
 app.get('/todo', function(req,res){
+    todoListJSON = reader.getTodoJSON();
     res.render('todo.ejs', {"todoJSON" : todoListJSON});
 });
 
