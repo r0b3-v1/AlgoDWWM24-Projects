@@ -71,10 +71,4 @@ app.get('/bounce', function(req,res){
     res.render('bounce.ejs');
 });
 
-app.post('/submit-form', (req, res) => {
-    const username = req.body.username
-    console.log(username);
-    //...
-    res.end()
-  })
 

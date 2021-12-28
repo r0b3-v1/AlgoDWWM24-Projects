@@ -4,16 +4,19 @@ const form = document.querySelector("form");
 const input = document.getElementById("submit-todo");
 const taskButton = document.getElementById("newTask");
 const inputTodos = document.getElementById("todos");
+const inputNewTask = document.getElementById("taskNew");
+
+inputNewTask.addEventListener("click", event =>{
+  event.preventDefault();
+  const value = "Nouvelle tâche";
+  addTodo(value);
+
+});
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  const value = input.value;
-  // input.value = "";
-  addTodo(value);
   inputTodos.value = JSON.stringify(todos,null,2);
   form.submit();
-  // callFetch();
-  console.log(todos);
 });
 var todoJSON = document.currentScript.getAttribute('one');
 const todos = JSON.parse(todoJSON);

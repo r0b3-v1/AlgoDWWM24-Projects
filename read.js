@@ -18,14 +18,14 @@ exports.randomWord = function(){
 
 exports.getTodoJSON = function(){
     if(!fs.existsSync(todoPath) || fs.readFileSync(todoPath)=='')
-    fs.appendFileSync(todoPath,'{}');
+    fs.appendFileSync(todoPath,'[]');
 
     return fs.readFileSync(todoPath);
 };
 
 exports.writeTodoJSON = function(json){
     if(!fs.existsSync(todoPath) || fs.readFileSync(todoPath)=='')
-    fs.appendFileSync(todoPath,'{}');
+    fs.appendFileSync(todoPath,'[]');
 
     fs.writeFileSync(todoPath, json);
 };
