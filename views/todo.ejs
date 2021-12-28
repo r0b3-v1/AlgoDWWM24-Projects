@@ -12,9 +12,9 @@
     <p><a href="/">Retour index</a></p>
 
     <h1> TODO list </h1>
-    <form method="get" action="/save" id="todo-form">
-        <input name="todos" style="display:none" id="todos">
-        <input id="submit-todo" type="submit" value="Nouvelle tâche">
+    <form method="POST" action="/save" id="todo-form">
+        <input type="text" name="todos" style="display:none" id="todos" value="test">
+        <input type="submit" id="submit-todo"  value="Nouvelle tâche">
     </form>
     <ul id="ul-todo">
     </ul>

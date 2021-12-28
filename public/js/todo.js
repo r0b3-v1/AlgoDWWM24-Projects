@@ -1,7 +1,7 @@
 //Tahya
 const ul = document.querySelector("ul");
 const form = document.querySelector("form");
-const input = document.querySelector("form > input");
+const input = document.getElementById("submit-todo");
 const taskButton = document.getElementById("newTask");
 const inputTodos = document.getElementById("todos");
 
@@ -10,8 +10,9 @@ form.addEventListener("submit", event => {
   const value = input.value;
   // input.value = "";
   addTodo(value);
-  inputTodos.value = "JSON.stringify(todos,null,2)";
-  callFetch();
+  inputTodos.value = JSON.stringify(todos,null,2);
+  form.submit();
+  // callFetch();
   console.log(todos);
 });
 var todoJSON = document.currentScript.getAttribute('one');
@@ -107,12 +108,12 @@ const editTodo = (index, input) => {
 
 displayTodo();
 
-function callFetch(){
-  fetch('/save', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: todos
-  });
-}
+// function callFetch(){
+//   fetch('/save', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: todos
+//   });
+// }

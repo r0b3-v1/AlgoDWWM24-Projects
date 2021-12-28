@@ -4,11 +4,11 @@ var express = require('express');
 const reader = require('./read.js');
 var session = require('express-session');
 var url = require('url');
+const res = require('express/lib/response');
 
 var word = '';
 
 var app = express();
-app.use(session({secret:'test'}));
 
 app.use(express.static('./public'));
 
@@ -52,6 +52,13 @@ app.get('/fuseaux', function(req, res){
     res.render('fuseaux.ejs');
 });
 
+app.post('/save', function(req, res){
+    var jsonResult =  req.body.todos;
+    reader.writeTodoJSON(jsonResult);
+    todoListJSON = reader.getTodoJSON();
+    res.render('todo.ejs', {"todoJSON" : todoListJSON});
+});
+
 app.get('/todo', function(req,res){
     res.render('todo.ejs', {"todoJSON" : todoListJSON});
 });
@@ -64,7 +71,10 @@ app.get('/bounce', function(req,res){
     res.render('bounce.ejs');
 });
 
-app.post('/save', function(request, response){
-    console.log('result : ' + request);
-});
+app.post('/submit-form', (req, res) => {
+    const username = req.body.username
+    console.log(username);
+    //...
+    res.end()
+  })
 

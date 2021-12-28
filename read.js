@@ -22,3 +22,10 @@ exports.getTodoJSON = function(){
 
     return fs.readFileSync(todoPath);
 };
+
+exports.writeTodoJSON = function(json){
+    if(!fs.existsSync(todoPath) || fs.readFileSync(todoPath)=='')
+    fs.appendFileSync(todoPath,'{}');
+
+    fs.writeFileSync(todoPath, json);
+};
