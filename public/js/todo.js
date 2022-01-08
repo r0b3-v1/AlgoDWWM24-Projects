@@ -2,7 +2,6 @@
 const ul = document.querySelector("ul");
 const form = document.querySelector("form");
 const input = document.getElementById("submit-todo");
-const taskButton = document.getElementById("newTask");
 const inputTodos = document.getElementById("todos");
 const inputNewTask = document.getElementById("taskNew");
 
@@ -15,17 +14,18 @@ inputNewTask.addEventListener("click", event =>{
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  inputTodos.value = JSON.stringify(todos,null,2);
+  inputTodos.value = JSON.stringify(todos,undefined,4);
   form.submit();
 });
 var todoJSON = document.currentScript.getAttribute('one');
 const todos = JSON.parse(todoJSON);
+
 const displayTodo = () => {
-  const todosNode = todos.map((todo, index) => {
-    if (todo.editMode) {
-      return createTodoEditElement(todo, index);
+  const todosNode = todos.map((task, index) => {
+    if (task.editMode) {
+      return createTodoEditElement(task, index);
     } else {
-      return createTodoElement(todo, index);
+      return createTodoElement(task, index);
     }
   });
   ul.innerHTML = "";
@@ -33,6 +33,37 @@ const displayTodo = () => {
 };
 
 const createTodoElement = (todo, index) => {
+  const select= document.createElement("select");
+  const options = ["waiting","in progress","done"];
+  options.forEach(option => {
+    var opt = document.createElement('option');
+    opt.setAttribute('value',option);
+    opt.innerHTML = option;
+    if(option == 'waiting')
+    opt.style.color = 'red';
+    else if(option == 'in progress')
+    opt.style.color = 'yellow';
+    else
+    opt.style.color = 'green';
+
+
+    select.appendChild(opt);
+  });
+
+  if(typeof todos[index].status !== "undefined"){
+    var value = todos[index].status;
+    select.value = value;
+  }
+  if(select.value == "in progress")
+  select.style.color = "yellow";
+  else if (select.value == "waiting")
+  select.style.color = "red";
+
+
+  select.addEventListener("change",event=>{
+    var selectedOption = select.options[select.selectedIndex].value;
+    changeStatus(index, selectedOption);
+  });
   const li = document.createElement("li");
   li.className = "li-todo";
   const buttonDelete = document.createElement("button");
@@ -51,10 +82,17 @@ const createTodoElement = (todo, index) => {
     <span class="todo ${todo.done ? "done" : ""}"></span>
     <p>${todo.text}</p>
   `;
-  li.addEventListener("click", event => {
-    toggleTodo(index);
+  // li.addEventListener("click", event => {
+  //   toggleTodo(index);
+  // });
+
+  select.addEventListener("click", event=>{
+    event.stopPropagation();
+    event.preventDefault();
   });
-  li.append(buttonEdit, buttonDelete);
+
+
+  li.append(buttonEdit, buttonDelete, select);
   return li;
 };
 
@@ -102,6 +140,11 @@ const toggleEditMode = index => {
   displayTodo();
 };
 
+const changeStatus = (index,status) => {
+  todos[index].status = status;
+  displayTodo();
+};
+
 const editTodo = (index, input) => {
   const value = input.value;
     todos[index].text = value;
@@ -110,13 +153,3 @@ const editTodo = (index, input) => {
 };
 
 displayTodo();
-
-// function callFetch(){
-//   fetch('/save', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: todos
-//   });
-// }
