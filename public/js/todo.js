@@ -79,7 +79,7 @@ const createTodoElement = (todo, index) => {
     toggleEditMode(index);
   });
   li.innerHTML = `
-    <span class="todo ${todo.done ? "done" : ""}"></span>
+    <span class="todo ${todo.done ? "done" : ""}">tache numero : ${index}</span>
     <p>${todo.text}</p>
   `;
   // li.addEventListener("click", event => {
@@ -102,6 +102,7 @@ const createTodoEditElement = (todo, index) => {
   const input = document.createElement("input");
   input.type = "text";
   input.value = todo.text;
+  input.size = todo.text.length;
   const buttonSave = document.createElement("button");
   buttonSave.innerHTML = "Save";
   const buttonCancel = document.createElement("button");
