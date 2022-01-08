@@ -112,6 +112,8 @@ border-color: #3b8e2f;
     border: 3px rgba(255, 255,255, 0.4) dashed;
     background-color: black;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #ul-todo li:nth-child(2n){
