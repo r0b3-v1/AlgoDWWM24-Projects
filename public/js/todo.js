@@ -9,14 +9,16 @@ inputNewTask.addEventListener("click", event =>{
   event.preventDefault();
   const value = "Nouvelle tâche";
   addTodo(value);
-
+  saveAJAX()
 });
 
 form.addEventListener("submit", event => {
   event.preventDefault();
   inputTodos.value = JSON.stringify(todos,undefined,4);
-  form.submit();
+  saveAJAX();
+  // form.submit();
 });
+
 var todoJSON = document.currentScript.getAttribute('one');
 const todos = JSON.parse(todoJSON);
 
@@ -63,6 +65,7 @@ const createTodoElement = (todo, index) => {
   select.addEventListener("change",event=>{
     var selectedOption = select.options[select.selectedIndex].value;
     changeStatus(index, selectedOption);
+    saveAJAX();
   });
   const li = document.createElement("li");
   li.className = "li-todo";
@@ -73,13 +76,15 @@ const createTodoElement = (todo, index) => {
   buttonDelete.addEventListener("click", event => {
     event.stopPropagation();
     deleteTodo(index);
+    saveAJAX();
   });
   buttonEdit.addEventListener("click", event => {
     event.stopPropagation();
     toggleEditMode(index);
+    // saveAJAX();
   });
   li.innerHTML = `
-    <span class="todo ${todo.done ? "done" : ""}">tache numero : ${index}</span>
+    <span class="todo ${todo.done ? "done" : ""}">tache numero : ${index+1}</span>
     <p>${todo.text}</p>
   `;
   // li.addEventListener("click", event => {
@@ -110,9 +115,11 @@ const createTodoEditElement = (todo, index) => {
   buttonCancel.addEventListener("click", event => {
     event.stopPropagation();
     toggleEditMode(index);
+    // saveAJAX();
   });
   buttonSave.addEventListener("click", event => {
     editTodo(index, input);
+    saveAJAX();
   });
   li.append(input,document.createElement("br"),document.createElement("br"), buttonCancel, buttonSave);
   return li;
@@ -154,3 +161,17 @@ const editTodo = (index, input) => {
 };
 
 displayTodo();
+
+const saveAJAX = ()=>{
+  var data = JSON.stringify(todos, null, 4);
+  $.ajax({
+    type: 'post',
+    url: '/ajax',
+    data: {objectData: data},
+    // contentType: 'application/json' //ne marche pas pour une obscure raison...
+  });
+  document.getElementsByClassName("save")[0].style.opacity = 1;
+  setTimeout(()=>{document.getElementsByClassName("save")[0].style.opacity = 0;}
+  ,1000);
+  
+};

@@ -1,1 +1,49 @@
-[    {        "text": "utiliser AJAX pour enregistrer la todo sans recharger la page (sous tâche de la tâche 6)",        "done": false,        "editMode": false,        "status": "in progress"    },    {        "text": "ajouter attribut date de création tache + date d'échéance",        "done": true,        "editMode": false,        "status": "waiting"    },    {        "text": "ajouter option pour filtrer les tâches selon leur statut/priorité/date",        "done": false,        "editMode": false,        "status": "waiting"    },    {        "text": "ajouter attribut priorité d'une tâche",        "done": false,        "status": "done",        "editMode": false    },    {        "text": "Système de sous-tâche (arborescence) : peut être fait en ajoutant un attribut parentTask et profondeur dans l'arbre (pour le css)",        "done": false,        "editMode": false    },    {        "text": "système de gestion des todolist (sauvegarder/Charger une todolist)",        "done": false,        "editMode": false    },    {        "text": "mettre en place un système de sauvegarde pour chaque action de l'utilisateur",        "done": false,        "editMode": false    },    {        "text": "faire en sorte que la taille de l'input de l'edit dépende du texte",        "done": false,        "editMode": false,        "status": "done"    }]
+[
+    {
+        "text": "utiliser AJAX pour enregistrer la todo sans recharger la page (sous tâche de la tâche 7)",
+        "done": false,
+        "editMode": false,
+        "status": "done"
+    },
+    {
+        "text": "ajouter attribut date de création tache + date d'échéance",
+        "done": true,
+        "editMode": false,
+        "status": "in progress"
+    },
+    {
+        "text": "ajouter option pour filtrer les tâches selon leur statut/priorité/date",
+        "done": false,
+        "editMode": false,
+        "status": "waiting"
+    },
+    {
+        "text": "ajouter attribut priorité d'une tâche",
+        "done": false,
+        "status": "in progress",
+        "editMode": false
+    },
+    {
+        "text": "Système de sous-tâche (arborescence) : peut être fait en ajoutant un attribut parentTask et profondeur dans l'arbre (pour le css avec gestion de la margin)",
+        "done": false,
+        "editMode": false,
+        "status": "waiting"
+    },
+    {
+        "text": "système de gestion des todolist (sauvegarder/Charger une todolist)",
+        "done": false,
+        "editMode": false
+    },
+    {
+        "text": "mettre en place un système de sauvegarde pour chaque action de l'utilisateur",
+        "done": false,
+        "editMode": false,
+        "status": "done"
+    },
+    {
+        "text": "faire en sorte que la taille de l'input de l'edit dépende du texte",
+        "done": false,
+        "editMode": false,
+        "status": "done"
+    }
+]

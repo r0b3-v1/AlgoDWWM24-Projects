@@ -71,4 +71,11 @@ app.get('/bounce', function(req,res){
     res.render('bounce.ejs');
 });
 
+app.post('/ajax', function(req, res){
+
+    var jsonResult =  req.body.objectData;
+    reader.writeTodoJSON(jsonResult);
+});
+
+
 
